@@ -1,0 +1,49 @@
+
+@if (ca!='list') {
+<form [formGroup]="studentform">
+  <div>
+    <input formControlName="id"  type="text" placeholder="Id">
+  </div>
+  <div>
+    <input formControlName="fullname" type="text" placeholder="Full name">
+  </div>
+  <div>
+    <input formControlName="average" type="text" placeholder="Average">
+  </div>
+  <div>
+    <button (click)="ok()">Ok</button>
+    <button (click)="Cancle()">Cancle</button>
+    @if (b) {
+      <button (click)="update()">Update</button>
+      }
+  </div>
+</form>
+}
+@else if (ca=='list') {
+<div>
+  <button (click)="add()">Add</button>
+ 
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Fullname</th>
+      <th>Average</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of data; track $index) {
+    <tr>
+      <td>{{item.id}}</td>
+      <td>{{item.fullname}}</td>
+      <td>{{item.average}}</td>
+      <td><button (click)="edit($index)">Edit</button></td>
+      <td><button (click)="remove($index)">X</button></td>
+    </tr>
+  }
+  </tbody>
+</table>
+}
