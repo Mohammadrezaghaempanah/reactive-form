@@ -11,10 +11,13 @@
     <input formControlName="average" type="text" placeholder="Average">
   </div>
   <div>
+    @if (b==false) {
     <button (click)="ok()">Ok</button>
     <button (click)="Cancle()">Cancle</button>
+    }
     @if (b) {
       <button (click)="update()">Update</button>
+      <button (click)="Cancle()">Cancle</button>
       }
   </div>
 </form>
